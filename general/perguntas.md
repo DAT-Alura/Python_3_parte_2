@@ -145,3 +145,102 @@ nome = "clarice"
 nome2 = nome.capitalize()
 print(nome)
 ```
+
+## Aula 3
+
+1 - Mariana montou o seguinte código Python para controlar se a sua barraca de frutas possui determinadas frutas solicitadas pelos seus clientes:
+```py
+# coding: utf-8
+frutas = ['Banana', 'Maca', 'Pera', 'Uva', 'Melancia', 'Jamelão']
+
+fruta_pedida = input('Qual é a fruta que deseja consultar ?')
+
+if(#####):
+    print ('Sim, temos a fruta.')
+else:
+    print ('Não temos a fruta.')
+```
+Qual código deve substituir o hasheado (#####) para que o programa funcione de modo esperado ?
+
+- frutas contains frutaPedida
+- frutaPedida not in frutas
+- frutas has frutaPedida
+- __fruta_pedida in frutas__
+> Correto! Assim como nas Strings, podemos utilizar o operador in para verificar se um determinado elemento está dentro de uma lista.
+
+> Para verificar se um determinado elemento existe em uma Lista, podemos utilizar o operador in. Ele nos retorna True ou False caso o elemento esteja ou não dentro da lista verificada, tornado este processo de verificação bem simples!
+> O Python é uma linguagem de programação que nos facilita muito para trabalhar com estruturas de dados, pois ele já tem diversas funções e operadores que auxiliam as tarefas mais comuns em trabalhar com Listas e Strings , nos tornando programadores muito produtivos.
+
+2 - Douglas deseja comprar um celular novo e tem monitorado o preço do celular desejado através de um pequeno script de Python.
+Ele salva todos os dias o preço atual do celular que ele deseja, e como ele monitora o preço de várias lojas e já está namorando este celular há muito tempo, ele acabou com uma lista muito grande, veja:
+```py
+precos = [
+    1525,1120,1464,1200,1330,1356,1312,1531,1232,1234,1250,1114,1553,
+    1147,1303,1296,1309,1404,1479,1376,1152,1440,1038,1018,1291,1388,
+    1577,1115,1488,1494,1254,1230,1122,1396,1208,1356,1549,1116,1443,
+    1075,1536,1542,1036,1015,1020,1217,1484,1032,1390,1026
+]
+```
+Recentemente ele esbarrou com uma promoção e o celular está custando R$ 1025. Ele ficou interessado e quer saber se esse é o menor preço que ele já encontrou deste celular.
+Qual dos códigos abaixo retorna o melhor preço até agora, para que o Douglas veja, de modo rápido, e decida se vale aproveitar a promoção ?
+
+- print( precos.min )
+- print( min precos )
+- print( not max(precos) )
+- __print( min(precos) )__
+> Correto! A função min nos retorna o menor item de uma lista.
+
+> Se desejamos descobrir o menor item de uma Lista, podemos utilizar a função min(), e passar a lista para ela como parâmetro. Então, no caso do Douglas, para descobrir o menor preço do celular até hoje, faríamos assim:  
+> ```print( min(precos))```  
+> E teríamos como resposta 1015, ou seja a promoção de R$ 1025 não valeria a pena!  
+> É importante notar também que só conseguimos utilizar a função min() em listas de mesmo tipo, então por exemplo na lista abaixo:  
+> ```precos = [ 1050, 'mil reais', 1020]```  
+> O Python não vai saber comparar a String mil reais com os inteiros numéricos. Então sempre que utilizarmos o min() a lista deve possuir todos os elementos do mesmo tipo.  
+> E claro, assim como temos a função min() que nos retorna o menor item da Lista, também temos a função max() que nos retorna o maior item da mesma.
+
+3 - Marina precisava gerar um relatório sobre o último ano fiscal de sua empresa. Ela solicitou à equipe de TI que gerasse uma lista com todos os nomes dos funcionários da empresa.  
+Ela recebeu a lista, que era como a lista abaixo:
+```py
+print(funcionarios)
+['Astrid','Flavia','Talia', ... ,'Mauricio', 'Waldemar', 'Marina']
+```
+Marina estava acabando o relatório 10 minutos antes do prazo final de envio quando notou que além do nome de todos os funcionários, ela também precisava do total de funcionários! Como ela tinha pouco tempo e não conseguiria contar manualmente, precisou recorrer aos seus conhecimentos de Python para contar o número de itens da lista.  
+Qual comando abaixo retorna o número de funcionários corretos da empresa de Marina?
+
+- print(length(funcionarios))
+- print(funcionarios.length)
+- print(funcionarios.len())
+- __print(len(funcionarios))__
+> Correto! A função len() retorna a quantidade de itens das listas
+
+4 - Romeu e seus colegas estavam competindo em um campeonato de futebol com o seu time 'Drible da emoção'.  
+Como ele era um dos organizadores, tinha de manter a colocação de cada um dos 4 times manualmente, levando em consideração diversos fatores como número de pontos, gols marcados e etc... Como Romeu era um estudante de Ciências da Computação, ele resolveu automatizar este processo todo em um script em Python, para facilitar sua vida e dedicar mais tempo aos treinos.  
+O seu script funcionou maravilhosamente bem, porém no dia de entrega dos resultados ele percebeu um erro. O script gerava a lista de colocação corretamente, porém na hora de exibir o resultado final com o campeão, ele sempre mostrava o segundo colocado em vez do primeiro colocado na Lista.  
+```py
+## Restante do código que gera a lista de colocação...
+
+print(colocacao)
+#Resultado: ['Drible da Emoção', 'Bruxos como Ronaldinho', 'Só golaço', '3x1 não é goleada']
+
+campeao = colocacao[1]
+
+print(' O grande campeão do torneio é o time ' + campeao)
+#Resultado:  O grande campeão do torneio é o time Bruxos como Ronaldinho
+```
+Aponte o provável erro de Romeu na hora de exibir o primeiro colocado de sua lista, para que o seu time Drible da Emoção seja devidamente coroado campeão.
+
+- __A__  
+Romeu fez quase tudo corretamente, errando apenas na linha:  
+```campeao = colocacao[1]```  
+Apesar dele querer o primeiro colocado de seu torneio, ele deve pedir o primeiro elemento da lista, que é o elemento de índice 0** e não de índice **1.
+> Correto! Vale lembrar que apesar de querermos o primeiro item de uma Lista, temos sempre que lembrar que as listas começam contando do índice 0
+
+- B  
+Romeu errou ao salvar o resultado em um variaveĺ na linha abaixo:  
+```campeao = colocacao[1]```  
+Quando fez isto, acabou alterando a ordem da lista, então quando ele pede para imprimir o campeao no print final, o resultado não vem como ele espera.
+
+- C  
+Romeu deveria ter impresso diretamente o resultado no print final, pulando a etapa de criar uma variável campeao. Caso ele tivesse feito assim:  
+```print(' O grande campeão do torneio é o time ' + colocacao[1])```  
+Ele obteria o resultado esperado.
