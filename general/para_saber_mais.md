@@ -97,3 +97,157 @@ else:
 ```
 
 Assim temos certeza que a fruta_buscada está dentro da lista antes de perguntarmos o seu índice, evitando assim de receber um erro no console.
+
+## Set
+
+### Quando uma sequência não é suficiente
+
+Já aprendemos algumas características das sequências. Elas guardam valores de qualquer tipo de dado e possuem uma determinada ordem, pois possuem um índice. As sequências também são chamadas de coleções e são o arroz e feijão para qualquer desenvolvedor Python!
+
+Agora dá uma olhada no exemplo abaixo onde criamos uma lista de CPFs:
+
+```py
+lista = [11122233344, 22233344455, 33344455566]
+```
+
+Nada errado aqui, mas imagine agora que você precisa evitar que exista algum CPF duplicado nesta lista. Isso é algo muito comum no dia-a-dia! Em muitas circunstâncias precisamos de uma coleção que não permita valores duplicados, mas nada nos impede adicionar um mesmo CPF nessa lista, por exemplo:
+
+```py
+lista.append(11122233344) #funciona!
+```
+
+Isso também funciona se fosse uma tuple! Uma tuple também permite elementos duplicados!
+
+### Conhecendo o set
+
+E agora? Será que o Python não oferece alguma coleção onde não podem existir elementos duplicados? Claro que existe uma coleção com esse propósito e ela se chama __set__.
+
+Veja o mesmo exemplo, mas agora inicializando um set:
+
+```py
+colecao = {11122233344, 22233344455, 33344455566}
+```
+
+Repare que usamos {} chaves para declarar os elementos iniciais. Pouca diferença comparando com as sequências, não?
+
+### Adicionando elementos no set
+
+Para adicionar um elemento a um set devemos chamar a função ```add``` (invés da ```append```):
+
+```py
+colecao.add(44455566677) #vai adicionar pois não existe ainda
+```
+
+E se usarmos um CPF que já existe? Não deve funcionar, certo? Vamos testar,e ver que o set vai ignorá-lo:
+
+```py
+colecao.add(11122233344) #nao vai adicionar pois este CPF já existe!
+```
+
+### set não possui um índice
+
+É importante notar que o set não é uma sequência, pois não tem um índice. O código abaixo não funciona:
+
+```py
+colecao[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'set' object does not support indexing
+```
+
+Isso mesmo, não tem índice. E como não temos um índice não sabemos em qual ordem vem os valores quando imprimimos um set de dentro de um laço for:
+
+```py
+for cpf in colecao:
+     print(cpf)
+```
+
+Imprime:
+
+```py
+11122233344
+44455566677
+33344455566
+22233344455
+```
+
+Repare que os elementos foram listados fora da ordem de inserção. Isso acontece porque o set não é ordenado.
+
+### Resumindo
+
+Um set é uma coleção não ordenada de elementos. Cada elemento é único, isso significa que não existem elementos duplicados dentro do set.
+
+Respire fundo e fique tranquilo pois o ```set``` será abordado ainda com mais detalhe em outros cursos. Vamos continuar?
+
+## Dictionary
+
+Você aguenta aprender mais um pouco sobre coleções? Então vamos lá :)
+
+Vamos lembrar rapidamente do último exemplo no vídeo quando misturamos as listas e tuples. Primeiro criamos pessoas com nome e idade usando ```tuple```:
+
+```py
+pessoa1 = ("Nico", 39)
+pessoa2 = ("Flavio", 37)
+pessoa3 = ("Marcos", 30)
+```
+
+Depois guardamos as tuples dentro de uma lista:
+
+```py
+instrutores = [pessoa1, pessoa2, pessoa3]
+```
+
+Se imprimimos ```instrutores``` recebemos:
+
+```py
+[('Nico', 39), ('Flavio', 37), ('Marcos', 30)]
+```
+
+Para saber a idade do ```Flavio```, devemos usar os índices (primeiro da lista, depois da tuple). Lembrando que acessamos o índice com os ```[]```:
+
+```py
+instrutores[1][1]
+37
+```
+
+Agora vem o problema: E se não sabemos a posição do ```Flavio```? Em geral, como podemos descobrir a idade de um instrutor sem saber a posição dele?
+
+### Instrutor pelo nome
+
+Repare que temos, na nossa coleção, sempre um __nome__ associado com a __idade__. Sempre temos um par de valores, aqui é:
+
+```py
+nome : idade
+```
+
+Invés de usar a posição gostaria de descobrir a idade através do nome, algo assim:
+
+```py
+instrutores['Flavio']
+```
+
+Só que isso não vai funcionar com lista, nem com tuple, nem combinando os dois :( É preciso usar uma nova estrutura de dados, o __Dictionary__!
+
+### Conhecendo o dictionary
+
+Para criar um dicionário devemos inicializar os instrutores de um modo um pouco diferente. Veja o código:
+
+```
+instrutores = {'Nico' : 39, 'Flavio': 37, 'Marcos' : 30}
+```
+
+Repare que usamos as chaves ```{}``` (como se fosse um set), mas sempre tem em pares. O primeiro par é ```'Nico' : 39```, o segundo é ```'Flavio': 37```, etc.
+
+Nesse par, temos no lado esquerdo a __chave__ e no lado direito o ```valor```. Isso é importante pois usamos a chave para recuperar um valor e assim resolvemos nosso problema:
+
+```py
+instrutores['Flavio']
+```
+
+Imprime:
+
+```py
+37
+```
+
+Isso foi apenas uma introdução, mas não se preocupe pois veremos ainda mais sobre dicionários dentro da carreira Python 3.

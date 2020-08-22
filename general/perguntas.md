@@ -244,3 +244,118 @@ Quando fez isto, acabou alterando a ordem da lista, então quando ele pede para 
 Romeu deveria ter impresso diretamente o resultado no print final, pulando a etapa de criar uma variável campeao. Caso ele tivesse feito assim:  
 ```print(' O grande campeão do torneio é o time ' + colocacao[1])```  
 Ele obteria o resultado esperado.
+
+## Aula 4
+
+1 - Quais dos tipos abaixo são considerados sequências?
+
+- __tuple__
+> Correto! O tipo tuple é considerado uma sequência de valores.
+- int
+- bool
+- __string__
+> Correto! O tipo string é considerado uma sequência de caracteres.
+- __list__
+> Correto! O tipo list é considerado uma sequência de valores.
+
+> Uma sequência é nada mais do que um conjunto de valores ordenados. Essa ordem é definida pelo índice. Por isso podemos acessar listas, tuples ou strings através dos [] (colchetes), por exemplo:
+> 
+> ```py
+> >>>palavra = "alura"
+> >>>palavra[3]
+> r
+> ```
+>
+> Ou usando uma tuple:
+>
+> ```py
+> >>>letras = ("p", "y", "t", "h", "o", "n")
+> >>>letras[2] 
+> t
+> ```
+>
+> Além disso, as sequências possuem várias funções em comuns, mas isso fica para a próxima pergunta!
+
+2 - Veja o código:
+```py
+valores = ("a","b","c","d","e")
+#AQUI
+```
+Dentre as funções abaixo, quais podem ser inseridas e executadas corretamente no lugar de #AQUI?
+
+- __len( valores )__
+> Correto! O len funciona para qualquer sequência, inclusive para tuples
+- __max( valores )__
+> Correto! O max funciona para qualquer sequência, inclusive para tuples.
+- del( valores[0] )
+- __min( valores )__
+> Correto! O min funciona para qualquer sequência, inclusive para tuples.
+
+> Importante saber que existem algumas funções que funcionam com todos os tipos de sequências como os built-ins: len, min e max.
+> O del também é uma função built-in, mas só funciona para sequências mutáveis como listas. Como o tuple é imutável, não podemos remover seus elementos, e logo o código dá erro.
+> Veja o mesmo exemplo correto usando uma lista:
+> 
+> ```py
+> valores = ["a","b","c","d","e"]
+> del(valores[0]) #funciona pois é lista
+> ```
+
+3 - Quais são as principais diferenças entre as sequências do tipo list e tuple?
+
+- __list usa colchetes [] para inicialização, tuple usa parênteses ()__
+> Correto! Para criar uma lista usamos [] e para criar um tuple usamos ()
+- list possui um índice, tuple não
+- __list é mutável, tuple é imutável__
+> Correto! Isso é a principal diferença. Listas são mutáveis e Tuples são imutáveis
+- list não pode ser usado no laço for, tuple sim
+- list tem um limite de valores, tuple não
+
+> Uma diferença que encontramos entre list e tuple é na hora de criá-las, em que usamos [] ou ():
+> 
+> ```py
+> >>> lista = [4,3,2,1]
+> >>> tuple = (4,3,2,1)
+> ```
+> 
+> Outra diferença é a questão de podermos alterar a sequência ou não. Listas podem ser alteradas, podendo adicionar ou remover elementos. Tuples, uma vez criadas, não podem ser alteradas. Tuples são imutáveis.
+
+4 - Veja todas as afirmações abaixo. Todas as sequências abaixo são imutáveis, exceto:
+
+- __list__
+> Correto! Listas são mutáveis, podemos adicionar e remover elementos como quisermos.
+- tuple
+- range
+- str
+
+> Já vimos nos vídeos as sequências str (strings), tuple, list e range.  
+> Entre essas sequências, list é a única que é mutável. tuple, str e range são imutáveis.  
+> Não falamos explicitamente que range é imutável, mas saiba que ele se comporta como tuples e strs.
+
+5 - O Pedro é um desenvolvedor Python Junior e precisa corrigir o código abaixo que está dando erro:
+```py
+nomes = ("Nico", "Douglas", "Flavio", "Daniel")
+#AQUI
+nomes.append("Fabio") 
+```
+Quais alternativas ele pode usar no lugar de #AQUI para o código funcionar?
+
+- nomes = tuple(nomes)
+- nomes = (nomes)
+- nomes = nomes[0]
+- __nomes = []__
+> Correto! Nomes será uma lista vazia.
+- __nomes = list(nomes)__
+> Correto! Estamos usando a função list para criar uma lista baseando-se nos valores da tuple nomes.
+
+> Lembrando que para transformar um tuple em uma lista, temos a função list(..). Se queremos transformar de list para tuple devemos usar tuple(..) Ambas são funções built-in.
+
+6 - Quais dos exemplos abaixo são mais propensos a serem usados como tuples em vez de listas?
+
+- Nomes de pessoas onde não sabemos quantas existem.
+- __Nomes dos meses.__
+> Correto! É ideal para uma tuple pois são sempre 12 meses.
+- Valores de CPF variáveis.
+- __Nomes dos estados do país.__
+> Correto! Como os estados do país são fixos, usar um tuple é uma boa opção.
+- Nome das estações do ano.
+> Correto! Temos sempre 4 estações no ano. Isso nunca muda e por isso é o cenário ideal para uma tuple.
