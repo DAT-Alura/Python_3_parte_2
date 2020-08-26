@@ -467,3 +467,127 @@ Podemos preencher uma nova lista com o quadrado de cada número da lista anterio
 - quadrados = [2 for n in inteiros]
 - Não é possível inicializar uma lista de números inteiros, apenas caracteres.
 - __quadrados = [n*n for n in inteiros]__
+
+## Aula 6
+
+1 - Se desejamos trabalhar com arquivos, precisamos primeiro abrí-lo utilizando a função open(). A função open() recebe um ou mais parâmetros. Em uma determinada ordem, quais são eles?
+
+- __O nome do arquivo e o modificador de acesso.__
+> Correto! Precisamos informar qual é o nome do arquivo que queremos abrir, e podemos também informar qual modificador de acesso válido.
+- O modificador de acesso primário e o modificador de acesso secundário.
+- O modificador de acesso e o nome de arquivo.
+
+> Importante é que não precisamos passar o modificador de acesso, pois o segundo parâmetro é opcional:
+> ```py
+> arquivo = open("entrada.txt")
+> ```
+> Nesse caso será utilizado o modo de leitura (r) por padrão.
+
+2 - Marque todas as alternativas abaixo que são modificadores de acesso da função ```open()```:
+
+- __r__
+> Correto! Utilizamos o modificador r para o modo de leitura
+- __a__
+> Correto! Utilizamos o modificador a para modo de append, adicionando conteúdo a um arquivo pré existente
+- w+r
+- __w__
+> Correto! Utilizamos o modificador w para modo de escrita.
+
+> Além do r, w e a existe o modificador b que devemos utilizar quando queremos trabalhar no modo binário. Para abrir uma > imagem devemos usar:
+> ```py
+> imagem = open("foto.jpg", "rb")
+> ```
+> Por exemplo, o código abaixo cria uma cópia de uma imagem:
+> ```py
+> #arquivo copia.py
+> logo = open('python-logo.png', 'rb')
+> data = logo.read()
+> logo.close()
+> 
+> logo2 = open('python-logo2.png', 'wb')
+> logo2.write(data)
+> logo2.close()
+> ```
+
+3 - É uma boa prática fecharmos o arquivo depois de utilizá-lo para escrita ou leitura, assim outros programas ou processos podem ter acesso ao arquivo e ele não fica preso apenas ao nosso script Python.  
+Qual das funções abaixo é utilizada para fechar um arquivo que foi aberto desse jeito:
+```py
+arquivo = open('nome.txt', 'w')
+```
+
+- arquivo.flush()
+- __arquivo.close()__
+> Correto! A função close é responsável por fechar o arquivo.
+- arquivo.clear()
+- arquivo.end()
+
+4 - Dado o arquivo abaixo chamado de pessoas.txt, onde estão separados os nomes e a idade de um grupo de pessoas:
+```py
+Romário 37
+Junior 32
+Daniel 28
+Izzy 38
+```
+Se queremos ler apenas a primeira linha do arquivo, quais comandos abaixo realizam este feito?
+
+- A
+```py
+arquivo = open('pessoas.txt', 'r')
+linha = arquivo.read()
+print(linha)
+```
+- B
+```py
+arquivo = open('pessoas.txt', 'r')
+linha = arquivo.firstline()
+print(linha)
+```
+
+- __C__
+```py
+arquivo = open('pessoas.txt', 'r')
+linha = arquivo.readline()
+print(linha)
+```
+> Correto! A função readline lê apenas uma linha do arquivo.
+
+> Se desejamos ler linha a linha de nosso arquivo, podemos utilizar a função readline(). Ela nos retorna uma linha por vez, e faz com que a nossa leitura seja feita de modo mais controlado. Também existe a função read() que por sua vez lê o arquivo inteiro.
+
+5 - Dado um arquivo como o seguinte: frutas.txt
+```py
+Banana
+Maçã
+Pera
+Uva
+Jamelão
+```
+Que foi aberto deste modo:
+```py
+arquivo = open('frutas.txt','r')
+```
+E quando executamos os comandos:
+```py
+linha = arquivo.readline()
+print(linha)
+linha = arquivo.readline()
+print(linha)
+```
+É exibido corretamente as linhas:
+```py
+Banana
+Maçã
+```
+Mas quando abrimos o arquivo e usamos os comandos:
+```py
+arquivo = open('frutas.txt','r')
+conteudo = arquivo.read()
+print(conteudo)
+conteudo = arquivo.read()
+print(conteudo)
+```
+A primeira vez é exibida corretamente o conteudo, porém na segunda não é exibido nada. Porque?
+
+- Se desejamos ler duas vezes o arquivo inteiro, temos que utilizar o modificador de acesso r+. O modificador de acesso r perde o efeito de leitura após a função read ser executada pela primeira vez.
+- __Pois o comando read() lê o arquivo inteiro de uma vez, colocando o ponteiro de leitura no final do mesmo. Se chamarmos a função read() novamente, como o ponteiro de leitura está no final, nada será lido.__
+> Correto! Se desejarmos ler o arquivo novamente, devemos fechá-lo com o comando .close(), reabri-lo com o comando .open() e ai sim conseguiremos lê-lo por inteiro novamente.
+- Pois como abrimos o comando com o modificador de acesso r, fica implícito que só tentaremos ler uma vez com a função read(), quando tentamos pela segunda vez obtemos um erro e a leitura é abortada.

@@ -291,3 +291,27 @@ inteiros = [1,3,4,5,7,8,9]
 pares = [x for x in inteiros if x % 2 == 0]
 ```
 Repare o ```if``` depois do ```for``` que define a condição! Muito melhor não?
+
+## With
+
+Já falamos da importância de fechar o arquivo, certo? Veja o código abaixo que justamente usa a função close :
+
+```py
+logo = open('palavras.txt', 'r')
+data = logo.read()
+logo.close()
+```
+
+Agora imagine que dê algum problema na hora da leitura quando chamarmos a função ```read()```. Será que mesmo com erro o arquivo será fechado?
+
+Se for algum erro grave, o programa pode parar a execução sem ter fechado o arquivo! Isso seria muito ruim ...
+
+Para evitar esse tipo de situação, o Python criou uma sintaxe especial para abertura de arquivo. Veja só:
+
+```py
+with open("palavras.txt") as arquivo:
+    for linha in arquivo:
+        print(linha)
+```
+
+Repare que o ```with``` usa a função ```open```. Repare também que não fechamos o arquivo. Isso não é mais necessário pois o Python vai cuidar disso e, mesmo com erro, garantirá o fechamento do arquivo! Muito melhor não?
