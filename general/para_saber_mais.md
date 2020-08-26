@@ -251,3 +251,43 @@ Imprime:
 ```
 
 Isso foi apenas uma introdução, mas não se preocupe pois veremos ainda mais sobre dicionários dentro da carreira Python 3.
+
+## Outra maneira de sair do loop
+
+Vimos nesse capítulo que as variáveis ```acertou``` e ```enforcou``` foram usadas para controlar a saída do loop. Enquanto elas não forem verdadeiras, o código dentro do loop será executado. Para que o loop seja encerrado, criamos atribuições para essas variáveis.
+
+```py
+enforcou = erros == 6
+acertou = "_" not in letras_acertadas
+```
+
+Contudo, essa não é única maneira de sair de um loop. Podemos usar também a palavra reservada break que, quando executada, irá encerrar o loop naquele ponto. Como podemos alterar nosso código da forca para utilizar o break e sair do while?
+
+## Inicializando uma lista de números pares
+
+O recurso List Comprehension também permite utilizar condições para o preenchimento da lista. Considere o objetivo de inicializar uma lista com os números pares a partir de uma lista de números inteiros qualquer, por exemplo, os números 1,3,4,5,7,8,9. Para descobrir se um número é par, usamos a condição numero%2 == 0, que verifica se o resto de uma divisão por 2 é zero. O código abaixo usa um loop para inicializar a lista de pares.
+```py
+inteiros = [1,3,4,5,7,8,9]
+pares = []
+for numero in inteiros:
+    if numero % 2 == 0:
+        pares.append(numero)
+```
+Pesquise como o podemos usar o List Comprehension para fazer o mesmo que o código acima.
+
+Resposta:
+
+Dado o código de geração da lista de pares abaixo:
+```py
+inteiros = [1,3,4,5,7,8,9]
+pares = []
+for numero in inteiros:
+    if numero % 2 == 0:
+        pares.append(numero)
+```
+O código usando List Comprehension relativo ficaria muito mais enxuto:
+```py
+inteiros = [1,3,4,5,7,8,9]
+pares = [x for x in inteiros if x % 2 == 0]
+```
+Repare o ```if``` depois do ```for``` que define a condição! Muito melhor não?

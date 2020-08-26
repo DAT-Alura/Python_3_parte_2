@@ -359,3 +359,111 @@ Quais alternativas ele pode usar no lugar de #AQUI para o código funcionar?
 > Correto! Como os estados do país são fixos, usar um tuple é uma boa opção.
 - Nome das estações do ano.
 > Correto! Temos sempre 4 estações no ano. Isso nunca muda e por isso é o cenário ideal para uma tuple.
+
+## Aula 5
+
+1 - Carlos criou um loop para calcular a quantidade de caracteres em uma palavra através do seguinte código:
+```py
+total = 0
+palavra = "python rocks!"
+acabou = False
+while (not acabou):
+    #AQUI 
+    total = total + 1
+print(total - 1)
+```
+O que Carlos precisa colocar dentro do while no lugar de #AQUI para que se encerre e consiga imprimir o total de caracteres da palavra?
+
+- acabou = True
+- __acabou = ( total == len(palavra) )__
+> Correto! Carlos poderia ter simplesmente usado a própria função len, mas esse código definirá True para a variável acabou apenas quando total for igual ao tamanho da palavra.
+- acabou = ( total == 11 )
+
+> Só para deixar claro, usando a função len:
+> ```py
+> len(palavra)
+> ```
+> Já imprime o tamanho da string!
+
+2 - Considere o seguinte trecho de código com um loop:
+```py
+passos = 0
+while (#######):
+  passos += 1
+print(passos)
+```
+O que precisa ser colocado na condição do while para que o loop saia após 10 passos?
+
+- __passos<10__
+> Correto! O loop será executado 10 vezes, conforme o pedido do enunciado.
+- passos==10
+- __passos<=9__
+> Correto! O loop será executado 10 vezes (0 até 9), conforme o pedido do enunciado.
+- passos<=10
+
+3 - No nosso jogo da forca imagine que você inicialize a variável erros com 6 tentativas:
+```py
+erros = 6
+```
+O que você precisa mudar no código para manter o jogador sendo enforcado após 6 tentativas frustradas?
+
+- A  
+    Nada.
+
+- B  
+    Apenas decrementar a variável erros com:
+    ```py
+    erros = erros - 1
+    ```
+
+- __C__  
+    Apenas mudar o teste da variável enforcou para:
+    ```py
+    enforcou =  erros == 12
+    ```
+> Correto! Se a variável erros começou com 6, pra manter a quantidade de tentativas em 6, precisamos mudar o teste da variável enforcou para 6 + 6, mas seria nada elegante e legível, certo?
+
+- __D__  
+    Decrementar a variável erros com:
+    ```py
+    erros = erros - 1
+    ```
+    e mudar o teste da variável enforcou para:
+    ```py
+    enforcou = erros == 0
+    ```
+> Correto! Podemos decrementarmos a variável erros para que ela chegue até zero e com isso o teste da variável enforcou precisará mudar para refletir isso.
+
+4 - João criou a seguinte lista:
+```py
+frutas = ["maçã", "banana", "laranja", "melancia"]
+```
+Agora ele precisa criar uma nova lista com as mesmas frutas, mas tudo escrito em letras maiúsculas. Ele escreveu o laço abaixo:
+```py
+lista = []
+for fruta in frutas:
+    lista.append(fruta.upper())
+```
+O código funciona, mas será que você pode mostrar para ele como usar as List Comprehensions? Qual solução abaixo é relativa ao laço?
+
+- lista = [for fruta.upper() in frutas]
+- __lista = [fruta.upper() for fruta in frutas]__
+> Correto! Criamos uma nova lista [] e dentro dos colchetes usamos a List Comprehension.
+- lista = [for fruta in frutas fruta.upper() ]
+
+> O código com List Comprehension, que inicializaria a lista acima, seria:
+> ```py
+> frutas = ["maçã", "banana", "laranja", "melancia"]
+> lista = [fruta.upper() for fruta in frutas]
+> ```
+> Repare que é muito mais enxuto e, uma vez acostumado com a sintaxe, é até mais fácil de entender.
+
+5 - Suponha que tenhamos uma lista com os seguintes inteiros:
+```py
+inteiros = [1,3,4,5,7,8]
+```
+Podemos preencher uma nova lista com o quadrado de cada número da lista anterior, através do recurso List Comprehension. Considerando que, para calcular o quadrado de um número, fazemos x*x, qual seria o código para obter a lista de quadrados?
+
+- quadrados = [2 for n in inteiros]
+- Não é possível inicializar uma lista de números inteiros, apenas caracteres.
+- __quadrados = [n*n for n in inteiros]__
