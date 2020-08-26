@@ -591,3 +591,93 @@ A primeira vez é exibida corretamente o conteudo, porém na segunda não é exi
 - __Pois o comando read() lê o arquivo inteiro de uma vez, colocando o ponteiro de leitura no final do mesmo. Se chamarmos a função read() novamente, como o ponteiro de leitura está no final, nada será lido.__
 > Correto! Se desejarmos ler o arquivo novamente, devemos fechá-lo com o comando .close(), reabri-lo com o comando .open() e ai sim conseguiremos lê-lo por inteiro novamente.
 - Pois como abrimos o comando com o modificador de acesso r, fica implícito que só tentaremos ler uma vez com a função read(), quando tentamos pela segunda vez obtemos um erro e a leitura é abortada.
+
+## Aula 7
+
+1 - Sobre funções em Python, temos as seguintes afirmativas:
+
+a - Uma função é um bloco de código que pode ser guardado, para ser chamado assim que desejarmos, contanto que saibamos seu nome. Contudo, não é necessário sabermos a sua implementação.
+
+b - A seguinte declaração de função é válida:
+```py
+# declara a função
+def imprime_mensagem():
+    print("Olá")
+
+# chama a função
+imprime_mensagem()
+```
+
+c - A convenção é criarmos funções no padrão lowerCamelCase, isto é, a primeira palavra é escrita com todas as letras minúsculas, as palavras restantes com a primeira letra maiúscula e unidas sem espaço.  
+Sobre as afirmativas anteriores, podemos afirmar que:
+
+- __Apenas a alternativa 3 é falsa.__
+> Correto! Em Python, a convenção é criarmos funções no padrão snake_case, isto é, cada palavra é iniciada com letras minúsculas e separadas por um underscore (_).
+- Nenhuma alternativa é falsa.
+- Apenas a alternativa 1 é falsa.
+- Apenas a alternativa 2 é falsa.
+
+> Uma função, quando carregada, não tem o seu bloco de código executado automaticamente. A função é guardada em algum lugar, para mais tarde alguém chamá-la. Mas para que alguém a chame, execute-a, precisa saber seu nome. É por isso que a declaração de uma função é:
+> ```py
+> def imprime_mensagem():
+>     print("Olá")
+> ```
+> Quando a função é carregada, nada acontece, mas se chamamos a função pelo seu nome, executamos todo aquele código do bloco da função:
+> ```py
+> def imprime_mensagem():
+>     print("Olá")
+> 
+> imprime_mensagem()
+> ```
+> É através de imprime_mensagem( ) que executamos tudo que está dentro do bloco (após os dois pontos, que esteja indentado corretamente) da função. Inclusive podemos chamar a função mais de uma vez:
+> ```py
+> def imprime_mensagem():
+>     print("Olá")
+> 
+> imprime_mensagem()
+> imprime_mensagem()
+> imprime_mensagem()
+> imprime_mensagem()
+> ```
+> No exemplo acima, executaremos o bloco da função quatro vezes, porque a chamamos quatro vezes!
+> 
+> Aliás, há uma convenção no nome de funções assim como nos nomes das variáveis, usamos o padrão snake_case. Sendo assim, toda função possui todas as letras minúsculas e cada palavra que forma o nome da função é separada por um underscore (o caractere _).
+
+2 - Douglas está criando uma calculadora simples, para realizar cálculos entre dois números. Para isso, ele criou quatro funções, uma para cada operação matemática (soma, subtração, multiplicação e divisão):
+```py
+def soma_dois_numeros(primeiro_numero, segundo_numero):
+    print(primeiro_numero + segundo_numero)
+
+def subtrai_dois_numeros{primeiro_numero, segundo_numero}
+    print(primeiro_numero - segundo_numero)
+
+def multiplica_dois_numeros(primeiro_numero, segundo_numero):
+    print(primeiro_numero * segundo_numero)
+
+def divide_dois_numeros(primeiro_numero, segundo_numero):
+    print(primeiro_numero / segundo_numero)
+```
+Mas na hora de testá-las, Douglas reparou algo estranho no funcionamento da sua calculadora. Então, das quatro funções declaradas acima, podemos dizer que:
+
+- A função ```multiplica_dois_numeros``` possui erro de sintaxe.
+- A função ```divide_dois_numeros``` possui erro de sintaxe.
+- A função ```soma_dois_numeros``` possui erro de sintaxe.
+- __A função ```subtrai_dois_numeros``` possui erro de sintaxe.__
+> Correto! A função subtrai_dois_numeros possui não só um, mas dois erros de sintaxe. Após o nome da função, deve haver parênteses (e não são chaves!), e está faltando os dois pontos após o nome da função.
+
+> Quando declaramos uma função, é importante os parênteses logo após o seu nome, é dentro dele que os parâmetros da função ficam. Inclusive toda função possui um bloco, em que podemos adicionar o código que quisermos que a função execute quando for chamada.  
+> Lembre-se que um bloco é caracterizado por tudo que fica após os dois pontos, indentado por quatro espaços. Tudo que estiver indentado por quatro espaços são instruções da função.
+
+3 - Entre as boas práticas de código, está a divisão do código de uma função grande em funções pequenas. Pensando nisso, todas as afirmativas abaixo são verdadeiras, exceto uma. Qual?
+
+- Dividindo o código de uma função grande em funções pequenas, evitamos o problema das múltiplas responsabilidades em única grande função, afinal uma função só deve ter uma única responsabilidade.
+- O código fica mais fácil de testar, pois com diversas pequenas funções, é muito mais fácil testá-las individualmente em busca de erros.
+- __A legibilidade do código fica prejudicada, visto que temos de ler diversas funções, em vez de apenas uma.__
+> Essa afirmativa é falsa! Quebrar o código em pequenas partes aumenta a legibilidade. Mas é preciso tomar cuidado com a criação de funções, pois criar funções desnecessariamente pode aumentar a complexidade do código.
+- Melhora a manutenção do código, já que é mais fácil você cuidar de vários pequenos blocos simples do que um grande bloco complexo.
+
+> Sabemos que quebrar uma grande função complexa em pequenas funções é uma boa prática por causa de diversos fatores, mas podemos citar como os principais deles:  
+> - Dar manutenção ao código fica muito mais fácil, visto que agora podemos examinar vários pequenos blocos, que são muito mais fáceis de compreender do que um grande bloco de código.
+> - Ao quebrar uma grande função, também estamos deixando ela com menos responsabilidades, com a meta de atingir o ideal de que cada função tenha apenas uma única responsabilidade.
+> - O código também fica muito mais fácil de testar, pois se temos diversas funções pequenas, conseguimos testar uma a uma em busca de erros no código.
+> - E por último, a legibilidade do código aumenta muito, pois dando nomes semânticos a cada uma das funções menores, conseguimos deixar bem claro o que aquela parte do código deve fazer e facilita o entendimento do todo como um geral.
